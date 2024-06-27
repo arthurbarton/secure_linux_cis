@@ -5,9 +5,7 @@
 #   include secure_linux_cis::redhat9
 class secure_linux_cis::sshd_service() {
 
-  if defined(Class['ssh::server']) {
-        notify { 'eggs': }
-  } else {
+  if !defined(Class['ssh::server']) {
     service { 'sshd':
       ensure => running,
       enable => true,
