@@ -9,7 +9,7 @@ class secure_linux_cis::rules::ensure_default_user_umask_is_027_or_more_restrict
     group   => 'root',
     mode    => '0700',
     content => file('secure_linux_cis/ensure_default_user_umask_is_027_or_more_restrictive.sh'),
-    before  => Exec['ensure_default_user_umask_is_027_or_more_restrictive.sh'],
+    before  => Exec['Ensure default user umask is 027 or more restrictive'],
   }
   exec { "Ensure default user umask is 027 or more restrictive":
     command   => "/usr/share/cis_scripts/ensure_default_user_umask_is_027_or_more_restrictive.sh",
