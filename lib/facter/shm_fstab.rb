@@ -3,7 +3,7 @@
 # Is /dev/shm is mounted from fstab
 # 
 Facter.add('shm_fstab') do
-  config kernel: 'Linux'
+  confine kernel: 'Linux'
   setcode do
     fstab = Facter::Core::Execution.exec('grep /dev/shm /etc/fstab')
     if fstab.include?('/dev/shm')
