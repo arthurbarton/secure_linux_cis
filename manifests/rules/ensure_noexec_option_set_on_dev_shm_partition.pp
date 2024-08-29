@@ -3,7 +3,7 @@
 # @summary Ensure noexec option set on /dev/shm partition 
 #
 class secure_linux_cis::rules::ensure_noexec_option_set_on_dev_shm_partition {
-  if $facts['mountpoints']['/dev/shm'] {
+  if $facts['shm_fstab'] and $facts['mountpoints']['/dev/shm'] {
     augeas { '/etc/fstab - noexec on /dev/shm':
       context => '/files/etc/fstab',
       changes => [
