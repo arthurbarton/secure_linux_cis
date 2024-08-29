@@ -1,2 +1,2 @@
 #!/bin/bash
-df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser
+df --local -P --exclude-type=overlay | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -not -path '*docker/overlay*' -xdev -nouser
