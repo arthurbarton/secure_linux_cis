@@ -3,13 +3,6 @@
 # @summary Ensure use of privileged commands are collected 
 #
 class secure_linux_cis::rules::ensure_use_of_privileged_commands_are_collected {
-  file { 'audit_use_of_privileged_commands_are_collected':
-    ensure => file,
-    path   => '/root/scripts/audit_use_of_privileged_commands_are_collected.sh',
-    source => 'puppet:///modules/secure_linux_cis/ensure_use_of_privileged_commands_are_collected.sh',
-    mode   => 'u+x',
-  }
-
   file { 'ensure_use_of_privileged_commands_are_collected':
     ensure => file,
     path   => '/root/scripts/ensure_use_of_privileged_commands_are_collected.sh',
