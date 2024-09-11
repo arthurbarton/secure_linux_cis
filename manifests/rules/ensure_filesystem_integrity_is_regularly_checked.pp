@@ -20,7 +20,7 @@ class secure_linux_cis::rules::ensure_filesystem_integrity_is_regularly_checked 
   }
 
   service { 'aidecheck.service':
-    ensure    => running,
+    ensure    => enabled,
     enable    => true,
     subscribe => File['/etc/systemd/system/aidecheck.service'],
   }
