@@ -3,10 +3,14 @@ Facter.add('are_legacy_crypto_policies') do
   confine operatingsystemmajrelease: ['8', '9']
 
   setcode do
+    ret = false
     File.open('/etc/crypto-policies/config').each do |i|
-      return true if %r{^\s*LEGACY\s*(\s+#.*)?$}i.match?(i) # Skip localhost
+      if i.match('^LEGACY')
+        ret = true
+      end
     end
 
-    false
+    ret
+
   end
 end
