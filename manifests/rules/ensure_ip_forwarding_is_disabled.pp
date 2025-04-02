@@ -7,8 +7,6 @@ class secure_linux_cis::rules::ensure_ip_forwarding_is_disabled(
 ) {
 
   if $enforced {
-
-  }
     sysctl { 'net.ipv4.ip_forward':
       value    => 0,
     }
